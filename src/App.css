@@ -468,6 +468,20 @@ main {
   color: var(--navy);
 }
 
+.generated-art {
+  width: 100%;
+  min-height: 440px;
+  display: block;
+  border-radius: 30px;
+  object-fit: cover;
+  background: var(--navy);
+}
+
+.generated-art--compact {
+  min-height: 390px;
+  background: var(--yellow);
+}
+
 .about-strip {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
@@ -832,12 +846,20 @@ main {
 
 .request-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.58fr) minmax(360px, 0.85fr);
   align-items: center;
   gap: 72px;
   padding: 88px max(32px, calc((100vw - 1312px) / 2));
   color: white;
   background: var(--navy);
+}
+
+.section-art {
+  width: 100%;
+  max-height: 280px;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
 }
 
 .request-section__copy {
@@ -1082,6 +1104,16 @@ main {
   display: inline-flex;
 }
 
+.about-story__art {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  display: block;
+  margin-top: 28px;
+  border-radius: 24px;
+  object-fit: contain;
+}
+
 .about-cta {
   display: flex;
   flex-direction: column;
@@ -1193,6 +1225,27 @@ main {
 
 .project-hero__copy > p {
   color: #d6d3d1;
+}
+
+.project-hero__visual {
+  display: grid;
+  gap: 24px;
+}
+
+.project-hero__art {
+  width: 100%;
+  max-height: 280px;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+.top-project__art {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 22px;
+  object-fit: contain;
 }
 
 .project-stats {

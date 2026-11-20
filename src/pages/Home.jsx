@@ -141,6 +141,11 @@ function Home() {
             <li>Kami hubungi lewat kontak yang kamu isi</li>
           </ul>
         </div>
+        <img
+          className="section-art section-art--request"
+          src="/assets/home-ajukan-ide-idea-collaboration-primary.png"
+          alt="Ilustrasi kolaborasi mengajukan ide project"
+        />
         <RequestForm />
       </section>
     </>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ActiveProjectCard, ProjectArtwork } from '../components/ProjectCards.jsx'
+import { ActiveProjectCard } from '../components/ProjectCards.jsx'
 import { PageIntro, RequestForm } from '../components/SiteLayout.jsx'
 import { activeProjects, portfolioProjects } from '../data/projects.js'
 
@@ -27,10 +27,17 @@ function Projects() {
             <a className="button button--light-outline" href="#top-project">Lihat Top Project</a>
           </div>
         </div>
-        <div className="project-stats" aria-label="Statistik Sigma Lab">
-          <div className="project-stat project-stat--teal"><strong>24+</strong><span>Project selesai</span></div>
-          <div className="project-stat project-stat--yellow"><strong>12</strong><span>Project dibuka</span></div>
-          <div className="project-stat project-stat--cream"><strong>36</strong><span>Mahasiswa terlibat</span></div>
+        <div className="project-hero__visual">
+          <img
+            className="project-hero__art"
+            src="/assets/project-hero-project-exploration-primary.png"
+            alt="Ilustrasi tim yang membangun project bersama"
+          />
+          <div className="project-stats" aria-label="Statistik Sigma Lab">
+            <div className="project-stat project-stat--teal"><strong>24+</strong><span>Project selesai</span></div>
+            <div className="project-stat project-stat--yellow"><strong>12</strong><span>Project dibuka</span></div>
+            <div className="project-stat project-stat--cream"><strong>36</strong><span>Mahasiswa terlibat</span></div>
+          </div>
         </div>
       </section>
 
@@ -83,7 +90,11 @@ function Projects() {
             <span className="top-project__creator">Creator: {featuredProject.creator}</span>
             <a className="button button--primary" href="/portfolio">Lihat Project <span aria-hidden="true">↗</span></a>
           </div>
-          <ProjectArtwork accent="yellow" />
+          <img
+            className="top-project__art"
+            src="/assets/project-top-attendance-dashboard-primary.png"
+            alt="Ilustrasi dashboard aplikasi presensi SIGMA Attendance"
+          />
         </article>
       </section>
 
@@ -98,6 +109,11 @@ function Projects() {
             <li>Kami hubungi lewat kontak yang kamu isi</li>
           </ul>
         </div>
+        <img
+          className="section-art section-art--request"
+          src="/assets/project-ajukan-ide-team-ideation-primary.png"
+          alt="Ilustrasi alur pengajuan ide project"
+        />
         <RequestForm />
       </section>
     </>

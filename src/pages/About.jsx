@@ -59,6 +59,11 @@ function About() {
         <div>
           <span className="eyebrow eyebrow--teal">CARA KAMI BERTUMBUH</span>
           <h2>Belajar yang terasa nyata.</h2>
+          <img
+            className="about-story__art"
+            src="/assets/about-story-sdlc-cycle-primary.png"
+            alt="Ilustrasi proses belajar dan berkarya di Sigma Lab"
+          />
         </div>
         <div className="about-story__copy">
           <p>

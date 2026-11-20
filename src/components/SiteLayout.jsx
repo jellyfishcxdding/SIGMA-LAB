@@ -95,33 +95,14 @@ export function PageIntro({ eyebrow, title, description, centered = false, headi
 
 export function DashboardArt({ compact = false }) {
   return (
-    <div className={`dashboard-art${compact ? ' dashboard-art--compact' : ''}`} aria-hidden="true">
-      <div className="dashboard-art__glow dashboard-art__glow--one" />
-      <div className="dashboard-art__glow dashboard-art__glow--two" />
-      <div className="mock-window mock-window--back">
-        <div className="mock-window__bar"><i /><i /><i /></div>
-        <div className="mock-window__body">
-          <div className="mock-window__sidebar"><i /><i /><i /><i /></div>
-          <div className="mock-window__content">
-            <div className="mock-window__heading" />
-            <div className="mock-window__chart"><span /><span /><span /><span /><span /></div>
-            <div className="mock-window__lines"><i /><i /><i /></div>
-          </div>
-        </div>
-      </div>
-      <div className="mock-window mock-window--front">
-        <div className="mock-window__bar mock-window__bar--dark"><i /><i /><i /></div>
-        <div className="mock-window__body">
-          <div className="mock-window__sidebar"><i /><i /><i /></div>
-          <div className="mock-window__content">
-            <div className="mock-window__heading mock-window__heading--short" />
-            <div className="mock-window__cards"><i /><i /><i /></div>
-            <div className="mock-window__lines"><i /><i /></div>
-          </div>
-        </div>
-      </div>
-      <span className="dashboard-art__caption">IDEA → IMPACT</span>
-    </div>
+    <img
+      className={`generated-art${compact ? ' generated-art--compact' : ''}`}
+      src={compact
+        ? '/assets/about-hero-team-learning-primary.png'
+        : '/assets/home-hero-team-collaboration-primary.png'}
+      alt=""
+      aria-hidden="true"
+    />
   )
 }
 
