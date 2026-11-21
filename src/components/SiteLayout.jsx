@@ -1,16 +1,21 @@
 import { useState } from 'react'
 
 const navigation = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'Beranda', href: '/' },
+  { label: 'Tentang', href: '/about' },
   { label: 'Portofolio', href: '/portfolio' },
   { label: 'Project', href: '/projects' },
 ]
 
+const landingNavigation = [
+  { label: 'Platform', href: '#platform' },
+  { label: 'Cara kerja', href: '#alur' },
+]
+
 export function Brand({ light = false }) {
   return (
-    <a className={`brand${light ? ' brand--light' : ''}`} href="/" aria-label="Sigma Lab home">
-      <span className="brand__mark" aria-hidden="true">Σ</span>
+    <a className={`brand${light ? ' brand--light' : ''}`} href="/" aria-label="Beranda Sigma Lab">
+      <img className="brand__mark" src="/sigma-logo.svg" alt="" />
       <span className="brand__name">SIGMA <b>LAB</b></span>
     </a>
   )
@@ -18,11 +23,13 @@ export function Brand({ light = false }) {
 
 export function Header({ pathname }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const isLandingPage = pathname === '/'
+  const links = isLandingPage ? landingNavigation : navigation
 
   return (
-    <header className="site-header">
+    <header className={`site-header${isLandingPage ? ' site-header--landing' : ''}`}>
       <div className="site-header__inner">
-        <Brand light />
+        <Brand light={!isLandingPage} />
         <button
           className="menu-toggle"
           type="button"
@@ -35,7 +42,7 @@ export function Header({ pathname }) {
           <span />
         </button>
         <nav className={`site-nav${menuOpen ? ' site-nav--open' : ''}`} aria-label="Navigasi utama">
-          {navigation.map(({ label, href }) => (
+          {links.map(({ label, href }) => (
             <a
               key={href}
               className={pathname === href ? 'site-nav__link is-active' : 'site-nav__link'}
@@ -46,7 +53,16 @@ export function Header({ pathname }) {
               {label}
             </a>
           ))}
-          <a className="header-cta" href="/projects#request">Ajukan ide <span aria-hidden="true">↗</span></a>
+          {isLandingPage ? (
+            <>
+              <a className="site-nav__link" href="/login" onClick={() => setMenuOpen(false)}>Masuk</a>
+              <a className="header-cta" href="/register" onClick={() => setMenuOpen(false)}>
+                Daftar <span aria-hidden="true">↗</span>
+              </a>
+            </>
+          ) : (
+            <a className="header-cta" href="/projects#request">Ajukan ide <span aria-hidden="true">↗</span></a>
+          )}
         </nav>
       </div>
     </header>
@@ -59,11 +75,11 @@ export function Footer() {
       <div className="site-footer__main">
         <div className="site-footer__intro">
           <Brand />
-          <p>Strategy, design, and technology for ideas that matter.</p>
+          <p>Belajar, berkarya, dan membangun solusi digital bersama.</p>
         </div>
         <div className="site-footer__links">
-          <h2>Explore more about Sigma</h2>
-          <a href="/about">About us <span aria-hidden="true">↗</span></a>
+          <h2>Jelajahi Sigma Lab</h2>
+          <a href="/about">Tentang kami <span aria-hidden="true">↗</span></a>
           <a href="/portfolio">Portofolio <span aria-hidden="true">↗</span></a>
           <a href="/projects">Project <span aria-hidden="true">↗</span></a>
         </div>
@@ -95,33 +111,14 @@ export function PageIntro({ eyebrow, title, description, centered = false, headi
 
 export function DashboardArt({ compact = false }) {
   return (
-    <div className={`dashboard-art${compact ? ' dashboard-art--compact' : ''}`} aria-hidden="true">
-      <div className="dashboard-art__glow dashboard-art__glow--one" />
-      <div className="dashboard-art__glow dashboard-art__glow--two" />
-      <div className="mock-window mock-window--back">
-        <div className="mock-window__bar"><i /><i /><i /></div>
-        <div className="mock-window__body">
-          <div className="mock-window__sidebar"><i /><i /><i /><i /></div>
-          <div className="mock-window__content">
-            <div className="mock-window__heading" />
-            <div className="mock-window__chart"><span /><span /><span /><span /><span /></div>
-            <div className="mock-window__lines"><i /><i /><i /></div>
-          </div>
-        </div>
-      </div>
-      <div className="mock-window mock-window--front">
-        <div className="mock-window__bar mock-window__bar--dark"><i /><i /><i /></div>
-        <div className="mock-window__body">
-          <div className="mock-window__sidebar"><i /><i /><i /></div>
-          <div className="mock-window__content">
-            <div className="mock-window__heading mock-window__heading--short" />
-            <div className="mock-window__cards"><i /><i /><i /></div>
-            <div className="mock-window__lines"><i /><i /></div>
-          </div>
-        </div>
-      </div>
-      <span className="dashboard-art__caption">IDEA → IMPACT</span>
-    </div>
+    <img
+      className={`generated-art${compact ? ' generated-art--compact' : ''}`}
+      src={compact
+        ? '/assets/about-hero-team-learning-primary.png'
+        : '/assets/home-hero-team-collaboration-primary.png'}
+      alt=""
+      aria-hidden="true"
+    />
   )
 }
 
@@ -136,7 +133,7 @@ export function RequestForm() {
 
   return (
     <form className="request-form" onSubmit={handleSubmit}>
-      <h3>{submitted ? 'Terima kasih!' : 'Form Request Project'}</h3>
+      <h3>{submitted ? 'Terima kasih!' : 'Formulir ide project'}</h3>
       {submitted ? (
         <p className="form-success" role="status">
           Terima kasih! Form ini belum terhubung ke layanan pengiriman, jadi permintaanmu belum terkirim.
