@@ -143,7 +143,7 @@ function Home() {
         </div>
         <img
           className="section-art section-art--request"
-          src="/assets/home-ajukan-ide-idea-collaboration-primary.png"
+          src="/assets/project-ajukan-ide-team-ideation-primary.png"
           alt="Ilustrasi kolaborasi mengajukan ide project"
         />
         <RequestForm />
