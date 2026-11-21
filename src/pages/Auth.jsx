@@ -21,6 +21,11 @@ function AuthIllustration() {
 function AuthPage({ mode }) {
   const isRegister = mode === 'register'
   const [showPassword, setShowPassword] = useState(false)
+  const redirect = new URLSearchParams(window.location.search).get('redirect')
+  const allowedRedirects = ['/about', '/portfolio', '/projects', '/home']
+  const postAuthRedirect = allowedRedirects.includes(redirect) ? redirect : '/home'
+  const loginHref = isRegister ? `/login${redirect ? `?redirect=${encodeURIComponent(redirect)}` : ''}` : postAuthRedirect
+  const registerHref = `/register${redirect ? `?redirect=${encodeURIComponent(redirect)}` : ''}`
 
   const title = isRegister ? 'Daftar' : 'Masuk'
 
@@ -148,9 +153,9 @@ function AuthPage({ mode }) {
             )}
 
             {isRegister ? (
-              <a className="auth-submit" href="/login">Buat Akun</a>
+              <a className="auth-submit" href={loginHref}>Buat Akun</a>
             ) : (
-              <a className="auth-submit" href="/">Masuk</a>
+              <a className="auth-submit" href={postAuthRedirect}>Masuk</a>
             )}
           </div>
 
@@ -166,7 +171,7 @@ function AuthPage({ mode }) {
 
           <p className="auth-card__switch">
             {isRegister ? 'Sudah punya akun?' : 'Belum punya akun?'}{' '}
-            <a href={isRegister ? '/login' : '/register'}>
+            <a href={isRegister ? loginHref : registerHref}>
               {isRegister ? 'Login' : 'Daftar sekarang'}
             </a>
           </p>

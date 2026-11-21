@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 const navigation = [
-  { label: 'Beranda', href: '/' },
+  { label: 'Beranda', href: '/home' },
   { label: 'Tentang', href: '/about' },
   { label: 'Portofolio', href: '/portfolio' },
   { label: 'Project', href: '/projects' },
@@ -79,9 +79,9 @@ export function Footer() {
         </div>
         <div className="site-footer__links">
           <h2>Jelajahi Sigma Lab</h2>
-          <a href="/about">Tentang kami <span aria-hidden="true">↗</span></a>
-          <a href="/portfolio">Portofolio <span aria-hidden="true">↗</span></a>
-          <a href="/projects">Project <span aria-hidden="true">↗</span></a>
+          <a href="/login?redirect=/about">Tentang kami <span aria-hidden="true">↗</span></a>
+          <a href="/login?redirect=/portfolio">Portofolio <span aria-hidden="true">↗</span></a>
+          <a href="/login?redirect=/projects">Project <span aria-hidden="true">↗</span></a>
         </div>
         <div className="site-footer__contact">
           <span className="eyebrow">PUNYA IDE?</span>

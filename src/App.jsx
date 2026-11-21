@@ -1,13 +1,15 @@
 import About from './pages/About.jsx'
 import { Login, Register } from './pages/Auth.jsx'
 import Home from './pages/Home.jsx'
+import Landing from './pages/Landing.jsx'
 import Portfolio from './pages/Portofolio.jsx'
 import Projects from './pages/Project.jsx'
 import { Footer, Header } from './components/SiteLayout.jsx'
 import './App.css'
 
 const routes = {
-  '/': Home,
+  '/': Landing,
+  '/home': Home,
   '/about': About,
   '/portfolio': Portfolio,
   '/projects': Projects,
@@ -17,7 +19,7 @@ const routes = {
 
 function App() {
   const pathname = window.location.pathname.replace(/\/+$/, '') || '/'
-  const Page = routes[pathname] || Home
+  const Page = routes[pathname] || Landing
   const isAuthPage = pathname === '/login' || pathname === '/register'
 
   return (
