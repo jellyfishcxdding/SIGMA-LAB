@@ -62,7 +62,7 @@ function About() {
           <img
             className="about-story__art"
             src="/assets/about-story-sdlc-cycle-primary.png"
-            alt="Ilustrasi proses belajar dan berkarya di Sigma Lab"
+            alt="Ilustrasi siklus pengembangan software di Sigma Lab"
           />
         </div>
         <div className="about-story__copy">
