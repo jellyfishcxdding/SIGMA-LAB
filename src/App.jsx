@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Header pathname={pathname} />
-      <main>
+      <main className={pathname === '/' ? 'main--landing' : undefined}>
         <Page />
       </main>
       <Footer />

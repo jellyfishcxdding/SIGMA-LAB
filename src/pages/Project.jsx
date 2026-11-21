@@ -31,7 +31,7 @@ function Projects() {
           <img
             className="project-hero__art"
             src="/assets/project-hero-project-exploration-primary.png"
-            alt="Ilustrasi tim yang membangun project bersama"
+            alt="Ilustrasi eksplorasi project mahasiswa"
           />
           <div className="project-stats" aria-label="Statistik Sigma Lab">
             <div className="project-stat project-stat--teal"><strong>24+</strong><span>Project selesai</span></div>
@@ -112,7 +112,7 @@ function Projects() {
         <img
           className="section-art section-art--request"
           src="/assets/project-ajukan-ide-team-ideation-primary.png"
-          alt="Ilustrasi alur pengajuan ide project"
+          alt="Ilustrasi tim mengembangkan ide project"
         />
         <RequestForm />
       </section>
